@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Join the RoblogNext waitlist for Roblox guides. GDPR-friendly signup with clear consent."
+    />
+    <title>Join waitlist — RoblogNext</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">RN</span>
+          <span class="logo-text">RoblogNext</span>
+        </a>
+        <nav class="nav-main" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about.html">About us</a>
+          <a href="waitlist.html" aria-current="page">Join waitlist</a>
+        </nav>
+        <a class="btn btn-secondary" href="index.html">Browse guides</a>
+      </div>
+    </header>
+
+    <main id="main" class="form-page">
+      <div class="form-card">
+        <h1>Join the waitlist</h1>
+        <p id="waitlist-subtitle" class="subtitle">
+          Leave your details to hear when full guides, alerts, and accounts go live. We
+          verify your email with a one-time code. No spam—only product mail related to
+          RoblogNext.
+        </p>
+
+        <div
+          id="notice-duplicate"
+          class="banner-notice banner-notice--warn"
+          tabindex="-1"
+          role="status"
+          aria-live="polite"
+        >
+          You have already subscribed to the waitlist, and will be notified about the
+          launch soon.
+        </div>
+
+        <div
+          id="form-success"
+          class="form-success"
+          tabindex="-1"
+          role="status"
+          aria-live="polite"
+        >
+          You have joined the waitlist, and will be notified about the launch soon.
+        </div>
+
+        <form id="waitlist-form" class="waitlist-step-form" novalidate>
+          <div class="form-row">
+            <label for="firstName">First name <span class="req" aria-hidden="true">*</span></label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              autocomplete="given-name"
+              required
+              maxlength="80"
+            />
+          </div>
+          <div class="form-row">
+            <label for="lastName">Last name <span class="req" aria-hidden="true">*</span></label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              autocomplete="family-name"
+              required
+              maxlength="80"
+            />
+            <p id="err-required" class="form-error" role="alert">
+              First name and last name are required.
+            </p>
+          </div>
+          <div class="form-row">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              maxlength="254"
+              aria-describedby="email-hint"
+            />
+            <p id="email-hint" class="field-hint">
+              We use this to send waitlist and product updates. You can withdraw consent
+              any time; see our <a href="privacy.html">privacy notice</a>.
+            </p>
+            <p id="err-email" class="form-error" role="alert">Enter a valid email address.</p>
+          </div>
+
+          <div class="form-row">
+            <label for="gameGuide">Game guide I&rsquo;m looking for <span class="req" aria-hidden="true">*</span></label>
+            <select id="gameGuide" name="gameGuide" required aria-describedby="game-guide-hint">
+              <option value="">Choose a game…</option>
+              <option value="Fisch">Fisch</option>
+              <option value="Sailer Piece">Sailer Piece</option>
+              <option value="Rivals">Rivals</option>
+              <option value="Blox Fruits">Blox Fruits</option>
+              <option value="99 Nights in a Forest">99 Nights in a Forest</option>
+              <option value="Adopt Me">Adopt Me</option>
+              <option value="other">Other (Roblox game)</option>
+            </select>
+            <p id="game-guide-hint" class="field-hint">
+              Pick the game you want guides for. If it is not listed, choose Other and type the exact Roblox experience name.
+            </p>
+            <p id="err-game" class="form-error" role="alert">Please choose a game from the list.</p>
+          </div>
+
+          <div id="game-other-wrap" class="form-row" hidden>
+            <label for="gameOther">Roblox game name <span class="req" aria-hidden="true">*</span></label>
+            <input
+              id="gameOther"
+              name="gameOther"
+              type="text"
+              autocomplete="off"
+              maxlength="120"
+              placeholder="e.g. Blox Fruits"
+              aria-describedby="game-other-hint"
+            />
+            <p id="game-other-hint" class="field-hint">
+              Use the name as it appears on Roblox so we can match demand to the right experiences.
+            </p>
+            <p id="err-game-other" class="form-error" role="alert">
+              Please enter the Roblox game name when you select Other.
+            </p>
+          </div>
+
+          <div class="gdpr-box">
+            <h3>How we use your data (GDPR / UK GDPR summary)</h3>
+            <p style="margin: 0 0 0.5rem">
+              <strong>Controller:</strong> RoblogNext (&ldquo;we&rdquo;). Replace this with
+              your legal entity name and contact email in production.
+            </p>
+            <ul>
+              <li>
+                <strong>Purpose:</strong> managing the waitlist and, if you opt in,
+                occasional product email when we launch features you asked for.
+              </li>
+              <li>
+                <strong>Lawful basis:</strong> consent (Article 6(1)(a) GDPR) for
+                waitlist processing and any marketing you separately agree to.
+              </li>
+              <li>
+                <strong>Categories of data:</strong> identity (first name, last name),
+                contact (email address), and your stated game interest (dropdown choice
+                or free-text game name when you pick Other).
+              </li>
+              <li>
+                <strong>Retention:</strong> we keep waitlist data until you unsubscribe,
+                withdraw consent, or we delete the list after launch migration—whichever
+                comes first. Exact periods should be stated in your privacy policy.
+              </li>
+              <li>
+                <strong>Your rights:</strong> access, rectification, erasure,
+                restriction, objection, portability, and the right to lodge a complaint
+                with your supervisory authority. Contact the controller to exercise these
+                rights.
+              </li>
+              <li>
+                <strong>Transfers:</strong> if you use processors outside the UK/EEA,
+                document safeguards (e.g. Standard Contractual Clauses) in your privacy
+                policy.
+              </li>
+            </ul>
+          </div>
+
+          <div class="checkbox-row">
+            <input
+              type="checkbox"
+              id="consentProcessing"
+              name="consentProcessing"
+              required
+            />
+            <label for="consentProcessing">
+              I agree that RoblogNext may process my name, email, and game interest to operate
+              the waitlist and send service messages about my signup.
+              <span class="req">*</span>
+            </label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="marketingOptIn" name="marketingOptIn" />
+            <label for="marketingOptIn">
+              Optional: I would like occasional emails about new games and major guide
+              drops. I can unsubscribe any time.
+            </label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="confirmAge" name="confirmAge" required />
+            <label for="confirmAge">
+              I confirm I am at least 16 years old, or I have a parent or guardian’s
+              permission to join. <span class="req">*</span>
+            </label>
+          </div>
+
+          <p id="err-gdpr" class="form-error" role="alert">
+            Please tick the required boxes to continue.
+          </p>
+
+          <p id="err-send" class="form-error" role="alert">
+            Could not send the verification code. Try again or check your connection.
+          </p>
+
+          <button type="submit" class="btn btn-primary btn-block" id="btn-send-code">
+            Send verification code
+          </button>
+        </form>
+
+        <div id="waitlist-step-otp" class="waitlist-step" hidden>
+          <div id="demo-otp-banner" class="demo-otp-banner">
+            <strong>Demo mode:</strong> email delivery is not connected. Your one-time code
+            is: <code id="demo-otp-code" class="otp-code"></code>
+            <span class="demo-otp-banner__hint">
+              In production, set <code>RoblogNextWaitlistConfig.requestOtpUrl</code> to your
+              API that sends the code by email.
+            </span>
+          </div>
+          <h2 class="waitlist-step__title">Enter verification code</h2>
+          <p class="waitlist-step__lead">
+            We sent a 6-digit code to
+            <strong id="otp-email-display"></strong>. Enter it below to confirm your
+            email.
+          </p>
+          <div class="form-row">
+            <label for="otp-input">One-time code</label>
+            <input
+              id="otp-input"
+              name="otp"
+              type="text"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              maxlength="6"
+              pattern="[0-9]{6}"
+              placeholder="000000"
+              aria-describedby="otp-hint"
+            />
+            <p id="otp-hint" class="field-hint">The code expires in 10 minutes.</p>
+            <p id="err-otp" class="form-error" role="alert">That code is incorrect or expired.</p>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" id="btn-verify-otp">
+            Verify and join waitlist
+          </button>
+          <button type="button" class="btn btn-secondary btn-block" id="btn-resend-otp">
+            Resend code
+          </button>
+          <button type="button" class="btn btn-secondary btn-block" id="btn-back-form">
+            Edit details
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> RoblogNext. Not affiliated with Roblox Corporation.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/waitlist-config.js"></script>
+    <script src="js/waitlist.js"></script>
+  </body>
+</html>

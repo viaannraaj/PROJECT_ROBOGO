@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Who RoblogNext is, what we build for Roblox players, and how we ship trustworthy guides."
+    />
+    <title>About us — RoblogNext</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">RN</span>
+          <span class="logo-text">RoblogNext</span>
+        </a>
+        <nav class="nav-main" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about.html" aria-current="page">About us</a>
+          <a href="waitlist.html">Join waitlist</a>
+        </nav>
+        <a class="btn btn-primary" href="waitlist.html">Get early access</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <header class="page-hero">
+        <h1>About RoblogNext</h1>
+        <p style="margin: 0; color: var(--rbx-text-muted); max-width: 40rem">
+          We are building a calmer way to find Roblox progression help—structured
+          search, clear scopes, and sources you can trust.
+        </p>
+      </header>
+
+      <div class="about-blocks">
+        <section class="about-block" aria-labelledby="who-heading">
+          <h2 id="who-heading">Who we are</h2>
+          <p>
+            RoblogNext is a small team of players and writers who spend time in high-depth
+            Roblox games—fishing grinds, long-form adventures, and competitive
+            shooters. We are not the games’ publishers; we are an independent guide
+            layer built for the community.
+          </p>
+        </section>
+
+        <section class="about-block" aria-labelledby="what-heading">
+          <h2 id="what-heading">What we do</h2>
+          <p>
+            We collect and publish progression routes, item explanations, and
+            checklists so you can answer questions like “what should I do next?” or
+            “what does this drop do?” without digging through noisy feeds.
+          </p>
+          <p>
+            Our launch focus is <strong>Fisch</strong>, <strong>Sailer Piece</strong>,
+            and <strong>Rivals</strong>, with room to expand once the waitlist tells us
+            where demand is strongest.
+          </p>
+        </section>
+
+        <section class="about-block" aria-labelledby="how-heading">
+          <h2 id="how-heading">How we do it</h2>
+          <p>
+            Every guide is scoped to a game version window, written with plain-language
+            steps, and cross-checked against in-game behaviour before we ship. When
+            games patch, we update or retire pages so search results do not send you
+            to outdated strats.
+          </p>
+          <p>
+            The public site you see today is a front door: search is wired to demo
+            data while we finish the editorial pipeline. Waitlist members will be first
+            to get saved searches, patch alerts, and full article drops.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> RoblogNext. Not affiliated with Roblox Corporation.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="waitlist.html">Waitlist</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

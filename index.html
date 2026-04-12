@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="RoblogNext helps Roblox players find progression tips and item guides for Fisch, Sailer Piece, Rivals, and more."
+    />
+    <title>RoblogNext — Roblox guides &amp; progression search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">RN</span>
+          <span class="logo-text">RoblogNext</span>
+        </a>
+        <nav class="nav-main" aria-label="Primary">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="about.html">About us</a>
+          <a href="waitlist.html">Join waitlist</a>
+        </nav>
+        <a class="btn btn-primary" href="waitlist.html">Get early access</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-heading">
+        <p class="hero-coming-soon">
+          Coming soon — <a href="waitlist.html">join waitlist</a>
+        </p>
+        <h1 id="hero-heading">Level up faster in your favourite Roblox games</h1>
+        <p class="hero-lead">
+          Search curated progression notes and item-focused guides. Launch focus covers
+          <strong>Sailer Piece</strong>, <strong>Fisch</strong>, <strong>Rivals</strong>,
+          <strong>Blox Fruits</strong>, <strong>99 Nights in a Forest</strong>, and
+          <strong>Adopt Me</strong>—more games as we grow.
+        </p>
+
+        <div class="search-panel">
+          <div class="search-row">
+            <div class="select-wrap">
+              <label for="search-game">Game</label>
+              <select id="search-game" name="game" aria-describedby="search-hint">
+                <option value="">All listed games</option>
+                <option value="Fisch">Fisch</option>
+                <option value="Sailer Piece">Sailer Piece</option>
+                <option value="Rivals">Rivals</option>
+                <option value="Blox Fruits">Blox Fruits</option>
+                <option value="99 Nights in a Forest">99 Nights in a Forest</option>
+                <option value="Adopt Me">Adopt Me</option>
+              </select>
+            </div>
+            <div class="input-wrap flex-grow">
+              <label for="search-query">Search guides</label>
+              <input
+                id="search-query"
+                name="q"
+                type="search"
+                autocomplete="off"
+                placeholder="e.g. rods, boss, economy, items…"
+                aria-describedby="search-hint"
+              />
+            </div>
+          </div>
+          <p id="search-hint" class="search-hint">
+            Pick a specific game to go to <strong>Join waitlist</strong>—guides are not
+            live yet. With &ldquo;All listed games&rdquo;, search filters the demo guides
+            below as you type.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="games-heading">
+        <h2 id="games-heading" class="section-title">Supported games (launch focus)</h2>
+        <div class="games-grid">
+          <article class="game-card">
+            <h3>Fisch</h3>
+            <p>
+              Rods, mutations, islands, and catch value—search for the systems that gate
+              your progression.
+            </p>
+          </article>
+          <article class="game-card">
+            <h3>Sailer Piece</h3>
+            <p>
+              Fruits, sea content, bosses, and gear checks—guides tuned for how you
+              actually play through the world.
+            </p>
+          </article>
+          <article class="game-card">
+            <h3>Rivals</h3>
+            <p>
+              Movement, economy, loadouts, and item timing—practical notes for
+              competitive rounds.
+            </p>
+          </article>
+          <article class="game-card">
+            <h3>Blox Fruits</h3>
+            <p>
+              Fruits, fighting styles, sea events, and raids—roadmaps for leveling,
+              PvP prep, and which drops to chase next.
+            </p>
+          </article>
+          <article class="game-card">
+            <h3>99 Nights in a Forest</h3>
+            <p>
+              Nights survived, base layout, crafting loops, and threat patterns—guides
+              for pushing deeper runs without burning resources.
+            </p>
+          </article>
+          <article class="game-card">
+            <h3>Adopt Me</h3>
+            <p>
+              Pets, trades, bucks economy, and seasonal events—clear checklists for
+              collectors and home builders alike.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="results-region" aria-labelledby="results-heading">
+        <h2 id="results-heading" class="section-title">Guide matches</h2>
+        <p id="search-status" class="search-hint" style="margin-top: -0.5rem"></p>
+        <div id="search-results"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© <span id="year"></span> RoblogNext. Not affiliated with Roblox Corporation.</p>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="waitlist.html">Waitlist</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/guides-data.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/home-game-redirect.js"></script>
+  </body>
+</html>
