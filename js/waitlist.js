@@ -249,11 +249,15 @@
         }),
       });
       if (!res.ok) throw new Error("request failed");
+      const data = await res.json().catch(function () {
+        return {};
+      });
       writePending({
         email: draft.emailNormalized,
         expires: Date.now() + 10 * 60 * 1000,
         draft: draft,
         mode: "server",
+        challengeToken: data.challengeToken || "",
       });
       return { mode: "server" };
     }
@@ -282,6 +286,7 @@
         body: JSON.stringify({
           email: normalizeEmail(email),
           code: String(code).trim(),
+          challengeToken: pending.challengeToken || "",
         }),
       });
       if (!res.ok) return false;

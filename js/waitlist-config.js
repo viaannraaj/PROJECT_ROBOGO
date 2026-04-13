@@ -7,8 +7,8 @@
  *   verifyOtpUrl: "https://api.yourdomain.com/waitlist/verify-otp"
  */
 window.RoblogNextWaitlistConfig = {
-  requestOtpUrl: null,
-  verifyOtpUrl: null,
+  requestOtpUrl: "/api/waitlist/request-otp",
+  verifyOtpUrl: "/api/waitlist/verify-otp",
   /** Demo only: show the code on-screen when email is not wired up */
-  demoRevealOtp: true,
+  demoRevealOtp: false,
 };

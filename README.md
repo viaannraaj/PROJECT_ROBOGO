@@ -26,6 +26,21 @@ git push -u origin main
 
 Enable **GitHub Pages** (Settings → Pages) with source **Deploy from a branch** → `main` → `/ (root)` to host the static site.
 
+## Vercel email OTP setup
+
+The waitlist now expects Vercel serverless endpoints:
+
+- `POST /api/waitlist/request-otp`
+- `POST /api/waitlist/verify-otp`
+
+Set these Environment Variables in Vercel Project Settings:
+
+- `RESEND_API_KEY` = your Resend API key
+- `OTP_FROM_EMAIL` = verified sender email/domain in Resend (example: `RoblogNext <noreply@roblognext.com>`)
+- `OTP_SIGNING_SECRET` = long random string (32+ chars)
+
+Without these variables, OTP email delivery will fail by design.
+
 ## License
 
 Add your license here.
