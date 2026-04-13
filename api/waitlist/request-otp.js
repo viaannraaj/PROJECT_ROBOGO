@@ -44,7 +44,9 @@ async function sendOtpEmail({ to, otp, from, apiKey }) {
 
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(`email failed: ${text}`);
+    const e = new Error("email_send_failed");
+    e.details = text;
+    throw e;
   }
 }
 
@@ -54,7 +56,7 @@ module.exports = async function handler(req, res) {
   }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const otpFromEmail = process.env.OTP_FROM_EMAIL;
+  const otpFromEmail = process.env.OTP_FROM_EMAIL || process.env.RESEND_FROM_EMAIL;
   const signingSecret = process.env.OTP_SIGNING_SECRET;
   if (!resendApiKey || !otpFromEmail || !signingSecret) {
     return json(res, 500, { ok: false, error: "missing_server_env" });
@@ -77,6 +79,25 @@ module.exports = async function handler(req, res) {
     });
     return json(res, 200, { ok: true, challengeToken, expires: exp });
   } catch (error) {
+    const details = String(error && error.details ? error.details : "");
+    if (details.includes("You can only send testing emails")) {
+      return json(res, 500, {
+        ok: false,
+        error: "resend_domain_not_verified",
+      });
+    }
+    if (details.includes("Invalid `from` field")) {
+      return json(res, 500, {
+        ok: false,
+        error: "invalid_from_email",
+      });
+    }
+    if (details.includes("Invalid API key")) {
+      return json(res, 500, {
+        ok: false,
+        error: "invalid_resend_api_key",
+      });
+    }
     return json(res, 500, { ok: false, error: "email_send_failed" });
   }
 };

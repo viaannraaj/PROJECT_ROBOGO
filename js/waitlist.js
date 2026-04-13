@@ -40,6 +40,13 @@
     el.classList.toggle("visible", !!visible);
   }
 
+  function showSendError(msg) {
+    if (!errSend) return;
+    errSend.textContent =
+      msg || "Could not send the verification code. Try again or check your connection.";
+    show(errSend, true);
+  }
+
   function validEmail(v) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   }
@@ -248,10 +255,27 @@
           marketingOptIn: draft.marketingOptIn,
         }),
       });
-      if (!res.ok) throw new Error("request failed");
       const data = await res.json().catch(function () {
         return {};
       });
+      if (!res.ok) {
+        const code = String(data.error || "");
+        if (code === "missing_server_env") {
+          throw new Error("Server config is incomplete. Please contact support.");
+        }
+        if (code === "invalid_resend_api_key") {
+          throw new Error("Email service key is invalid. Please contact support.");
+        }
+        if (code === "invalid_from_email") {
+          throw new Error("Sender email is not valid. Please contact support.");
+        }
+        if (code === "resend_domain_not_verified") {
+          throw new Error(
+            "Email domain is not verified yet. Please try again shortly."
+          );
+        }
+        throw new Error("Could not send verification code right now.");
+      }
       writePending({
         email: draft.emailNormalized,
         expires: Date.now() + 10 * 60 * 1000,
@@ -323,8 +347,8 @@
           show(demoOtpBanner, false);
         }
       })
-      .catch(function () {
-        show(errSend, true);
+      .catch(function (err) {
+        showSendError(err && err.message ? err.message : "");
       })
       .then(function () {
         btnSendCode.disabled = false;
@@ -406,8 +430,8 @@
         otpInput.value = "";
         show(errOtp, false);
       })
-      .catch(function () {
-        show(errSend, true);
+      .catch(function (err) {
+        showSendError(err && err.message ? err.message : "");
       })
       .then(function () {
         btnResendOtp.disabled = false;
